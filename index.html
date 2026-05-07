@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ── CSP — FIX #3 ── -->
+<meta http-equiv="Content-Security-Policy"
+  content="default-src 'self';
+  script-src 'self' 'unsafe-inline';
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src https://fonts.gstatic.com;
+  connect-src https://api.terradex.com;
+  img-src 'self' data: https:;
+  frame-ancestors 'none';">
+
+<!-- ── X-Frame-Options via meta ── -->
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+<!-- ── SEO ── -->
+<title>TERRADEX IA — Inteligencia Territorial para Inversores en Patagonia</title>
+<meta name="description" content="Plataforma SaaS de inteligencia territorial con IA para inversores globales y productores. Datos satelitales, geológicos y climáticos de Chubut, Argentina. Reportes en 6 minutos.">
+<meta name="keywords" content="inteligencia territorial, Patagonia, Chubut, inversión minería Argentina, datos satelitales, SaaS geoespacial, SAOCOM, due diligence territorial">
+<meta name="author" content="TERRADEX IA">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://terradex.com">
+
+<!-- ── OPEN GRAPH ── -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://terradex.com">
+<meta property="og:title" content="TERRADEX IA — La tierra tiene secretos. Nosotros los leemos.">
+<meta property="og:description" content="Inteligencia territorial con IA para inversores en Patagonia. Datos satelitales, geológicos y climáticos de Chubut. Reportes ejecutivos en 6 minutos.">
+<meta property="og:image" content="https://terradex.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TERRADEX IA — Inteligencia territorial Patagonia">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="TERRADEX IA">
+
+<!-- ── TWITTER ── -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TERRADEX IA — Inteligencia Territorial Patagonia">
+<meta name="twitter:description" content="Plataforma SaaS con agentes de IA para inversores en Chubut y Patagonia argentina.">
+<meta name="twitter:image" content="https://terradex.com/og-image.jpg">
+
+<!-- ── SCHEMA.ORG ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "TERRADEX IA",
+  "description": "Plataforma SaaS de inteligencia territorial con agentes de IA para inversores en Patagonia, Argentina",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://terradex.com",
+  "offers": {
+    "@type": "Offer",
+    "price": "3500",
+    "priceCurrency": "USD"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Chubut, Argentina"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "TERRADEX IA",
+    "url": "https://terradex.com"
+  }
+}
+</script>
+
+<!-- ── PERFORMANCE: Preload critical fonts ── -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<!-- ── FAVICON ── -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a0d0f'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='18' font-weight='900' fill='%23c8920a'>T</text></svg>">
+
+<style>
+/* ── RESET + BASE ── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+
+:root {
+  --ink: #0a0d0f;
+  --paper: #f5f1eb;
+  --cream: #ede8e0;
+  --gold: #c8920a;
+  --gold-lt: #e8b84b;
+  --teal: #0e6b5e;
+  --teal-lt: #12897a;
+  --text: #1a1612;
+  --muted: #6b6257;
+  --border: rgba(26,22,18,0.12);
+  --border-lt: rgba(26,22,18,0.06);
+  --ff-display: 'Playfair Display', Georgia, serif;
+  --ff-mono: 'DM Mono', 'Courier New', monospace;
+  --ff-body: 'DM Sans', system-ui, sans-serif;
+}
+
+body {
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--ff-body);
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── CUSTOM CURSOR (desktop only) ── */
+@media (hover: hover) and (pointer: fine) {
+  body { cursor: none; }
+  .cursor, .cursor-ring {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%,-50%);
+    will-change: left, top;
+  }
+  .cursor {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    transition: width .15s, height .15s, background .15s;
+    mix-blend-mode: multiply;
+  }
+  .cursor-ring {
+    width: 32px; height: 32px;
+    border: 1px solid rgba(200,146,10,0.5);
+    z-index: 9998;
+  }
+  .cursor-lg { width: 16px !important; height: 16px !important; background: var(--teal) !important; }
+}
+
+/* ── NOISE OVERLAY ── */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9990;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; inset: 0 0 auto;
+  z-index: 500;
+  padding: 18px 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background .3s, border-color .3s, backdrop-filter .3s;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled {
+  background: rgba(245,241,235,.96);
+  border-color: var(--border);
+  backdrop-filter: blur(16px);
+}
+.nav-brand {
+  font-family: var(--ff-display);
+  font-weight: 900; font-size: 17px;
+  letter-spacing: -.5px; color: var(--ink);
+  text-decoration: none;
+}
+.nav-brand em { font-style: italic; color: var(--gold); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  font-family: var(--ff-mono);
+  font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  font-family: var(--ff-mono);
+  font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase;
+  background: var(--ink); color: var(--paper);
+  border: none; padding: 10px 20px;
+  cursor: pointer; transition: background .2s;
+}
+.nav-cta:hover { background: var(--teal); }
+@media(max-width:768px) {
+  .nav-links { display: none; }
+  nav { padding: 16px 5%; }
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  position: relative; overflow: hidden;
+}
+@media(max-width:900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+}
+
+.hero-left {
+  padding: clamp(100px,14vh,160px) 5% 80px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 2;
+}
+
+.eyebrow {
+  font-family: var(--ff-mono);
+  font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--teal);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 28px;
+  opacity: 0; animation: fadeUp .7s ease .2s forwards;
+}
+.eyebrow::before { content:''; width:32px; height:1px; background:currentColor; }
+
+h1 {
+  font-family: var(--ff-display);
+  font-size: clamp(48px,6.5vw,84px);
+  font-weight: 900; line-height: 1.0;
+  letter-spacing: -2.5px; color: var(--ink);
+  margin-bottom: 28px;
+  opacity: 0; animation: fadeUp .7s ease .35s forwards;
+}
+h1 em { font-style: italic; color: var(--gold); }
+
+.hero-desc {
+  font-size: 15px; line-height: 1.75;
+  color: var(--muted); max-width: 400px;
+  margin-bottom: 44px;
+  opacity: 0; animation: fadeUp .7s ease .5s forwards;
+}
+
+.hero-btns {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 20px;
+  opacity: 0; animation: fadeUp .7s ease .65s forwards;
+}
+
+.btn-fill {
+  background: var(--ink); color: var(--paper);
+  border: none; padding: 15px 32px;
+  font-family: var(--ff-mono);
+  font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase; cursor: pointer;
+  transition: background .3s, color .3s;
+  position: relative; overflow: hidden;
+}
+.btn-fill::before {
+  content:''; position:absolute; inset:0;
+  background: var(--gold);
+  transform: translateX(-101%);
+  transition: transform .3s;
+}
+.btn-fill:hover { color: var(--ink); }
+.btn-fill:hover::before { transform: translateX(0); }
+.btn-fill span { position: relative; z-index: 1; }
+
+.btn-text {
+  font-family: var(--ff-mono);
+  font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted); background: none; border: none;
+  cursor: pointer; transition: color .2s;
+  display: flex; align-items: center; gap: 6px;
+}
+.btn-text:hover { color: var(--ink); }
+
+.hero-counters {
+  display: flex; gap: 0;
+  margin-top: 56px;
+  border-top: 1px solid var(--border); padding-top: 32px;
+  opacity: 0; animation: fadeUp .7s ease .8s forwards;
+}
+.hcount {
+  flex: 1; padding-right: 24px;
+  border-right: 1px solid var(--border);
+  margin-right: 24px;
+}
+.hcount:last-child { border: none; margin: 0; padding: 0; }
+.hcount-num {
+  font-family: var(--ff-display);
+  font-size: 28px; font-weight: 900;
+  letter-spacing: -1px; color: var(--ink);
+  line-height: 1; margin-bottom: 4px;
+}
+.hcount-label {
+  font-family: var(--ff-mono);
+  font-size: 8px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--muted);
+  line-height: 1.4;
+}
+
+.hero-right { background: var(--ink); position: relative; overflow: hidden; }
+.hero-right svg {
+  width: 100%; height: 100%;
+  opacity: 0; animation: fadeIn 1.4s ease .9s forwards;
+}
+
+/* ── TICKER ── */
+.ticker { background: var(--ink); padding: 13px 0; overflow: hidden; border-top: 1px solid rgba(245,241,235,.06); }
+.ticker-track {
+  display: flex; animation: scroll 28s linear infinite;
+  white-space: nowrap;
+}
+.ticker-track:hover { animation-play-state: paused; }
+.tick {
+  font-family: var(--ff-mono);
+  font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245,241,235,.35);
+  padding: 0 40px; display: flex; align-items: center; gap: 40px;
+}
+.tick b { color: var(--gold-lt); font-weight: 400; }
+@keyframes scroll { to { transform: translateX(-50%); } }
+
+/* ── SECTIONS ── */
+.sec { padding: clamp(72px,10vw,120px) 5%; }
+.sec-label {
+  font-family: var(--ff-mono);
+  font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--muted);
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 48px;
+}
+.sec-label::before { content:''; width:28px; height:1px; background:currentColor; }
+.sec-label.light { color: rgba(245,241,235,.35); }
+.sec-label.light::before { background: rgba(245,241,235,.2); }
+
+/* ── PROBLEM ── */
+.problem { border-bottom: 1px solid var(--border); }
+.problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+@media(max-width:768px) { .problem-grid { grid-template-columns: 1fr; gap: 48px; } }
+.problem-left .bignumber {
+  font-family: var(--ff-display);
+  font-size: clamp(72px,12vw,128px); font-weight: 900;
+  letter-spacing: -4px; line-height: 1;
+  color: var(--cream); margin-bottom: -16px;
+}
+.problem-left h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(30px,3.5vw,44px); font-weight: 700;
+  line-height: 1.2; letter-spacing: -1px;
+  color: var(--ink); margin-bottom: 20px;
+}
+.problem-left h2 em { font-style: italic; color: var(--gold); }
+.problem-left p { font-size: 14px; line-height: 1.8; color: var(--muted); max-width: 380px; }
+
+.stats-stack { display: flex; flex-direction: column; gap: 1px; }
+.stat-row {
+  background: var(--cream); padding: 24px 28px;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  border-left: 3px solid transparent; transition: all .25s;
+}
+.stat-row:hover { background: var(--ink); border-color: var(--gold); }
+.stat-row:hover .stat-lbl,
+.stat-row:hover .stat-side { color: rgba(245,241,235,.4); }
+.stat-row:hover .stat-val { color: var(--gold-lt); }
+.stat-lbl {
+  font-family: var(--ff-mono); font-size: 8px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 6px; transition: color .25s;
+}
+.stat-val {
+  font-family: var(--ff-display); font-size: 32px; font-weight: 900;
+  letter-spacing: -1px; color: var(--ink); transition: color .25s;
+}
+.stat-side {
+  font-size: 11px; line-height: 1.5; color: var(--muted);
+  text-align: right; max-width: 130px; transition: color .25s;
+}
+
+/* ── AGENTS ── */
+.agents-sec { background: var(--ink); color: var(--paper); }
+.agents-headline {
+  font-family: var(--ff-display);
+  font-size: clamp(32px,4vw,56px); font-weight: 900;
+  line-height: 1.05; letter-spacing: -1.5px;
+  max-width: 520px; margin-bottom: 72px;
+}
+.agents-headline em { font-style: italic; color: var(--gold-lt); }
+.agents-row {
+  display: grid; grid-template-columns: repeat(5,1fr);
+  gap: 1px; background: rgba(245,241,235,.06); margin-bottom: 72px;
+}
+@media(max-width:900px) { .agents-row { grid-template-columns: 1fr 1fr; } }
+@media(max-width:480px) { .agents-row { grid-template-columns: 1fr; } }
+
+.agent-card {
+  background: var(--ink); padding: 32px 26px;
+  position: relative; overflow: hidden; transition: background .25s;
+}
+.agent-card::after {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background: var(--gold); transform: scaleX(0); transform-origin: left;
+  transition: transform .35s ease;
+}
+.agent-card:hover { background: rgba(245,241,235,.04); }
+.agent-card:hover::after { transform: scaleX(1); }
+.agent-n { font-family: var(--ff-mono); font-size: 8px; letter-spacing: 2px; color: rgba(245,241,235,.2); margin-bottom: 20px; }
+.agent-ic { font-size: 26px; margin-bottom: 16px; display: block; }
+.agent-nm { font-family: var(--ff-display); font-size: 17px; font-weight: 700; color: var(--paper); margin-bottom: 8px; }
+.agent-mdl { font-family: var(--ff-mono); font-size: 8px; letter-spacing: 1px; color: var(--gold-lt); background: rgba(200,146,10,.1); padding: 3px 7px; display: inline-block; margin-bottom: 14px; }
+.agent-txt { font-size: 11px; line-height: 1.65; color: rgba(245,241,235,.4); }
+
+.roi-strip {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 64px; align-items: center; padding: 48px;
+  border: 1px solid rgba(245,241,235,.08);
+}
+@media(max-width:768px) { .roi-strip { grid-template-columns: 1fr; gap: 32px; } }
+.roi-big { text-align: center; min-width: 200px; }
+.roi-lbl { font-family: var(--ff-mono); font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,241,235,.3); margin-bottom: 8px; }
+.roi-num { font-family: var(--ff-display); font-size: 72px; font-weight: 900; color: var(--gold-lt); letter-spacing: -3px; line-height: 1; margin-bottom: 4px; }
+.roi-sub { font-family: var(--ff-mono); font-size: 8px; letter-spacing: 1px; color: rgba(245,241,235,.25); }
+.roi-text h3 { font-family: var(--ff-display); font-size: 22px; font-weight: 700; color: var(--paper); margin-bottom: 14px; letter-spacing: -.5px; }
+.roi-text p { font-size: 13px; line-height: 1.75; color: rgba(245,241,235,.45); margin-bottom: 28px; }
+.cost-table { border-top: 1px solid rgba(245,241,235,.06); }
+.ct-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(245,241,235,.04); font-family: var(--ff-mono); font-size: 9px; letter-spacing: .5px; }
+.ct-row span:first-child { color: rgba(245,241,235,.35); }
+.ct-row span:last-child { color: var(--gold-lt); }
+.ct-row.ct-total { border-color: rgba(200,146,10,.25); padding-top: 14px; margin-top: 4px; }
+.ct-row.ct-total span:first-child { color: var(--paper); font-size: 10px; }
+.ct-row.ct-total span:last-child { font-size: 11px; }
+
+/* ── MARKET ── */
+.market-sec { border-bottom: 1px solid var(--border); }
+.market-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); }
+@media(max-width:768px) { .market-cards { grid-template-columns: 1fr; } }
+.mcard { background: var(--paper); padding: 44px 36px; transition: background .25s; position: relative; overflow: hidden; }
+.mcard::before { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background: var(--teal); transform: scaleX(0); transform-origin: left; transition: transform .35s; }
+.mcard:hover { background: var(--cream); }
+.mcard:hover::before { transform: scaleX(1); }
+.mcard-tag { font-family: var(--ff-mono); font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); display: flex; align-items: center; gap: 8px; margin-bottom: 28px; }
+.mcard-tag::before { content:''; width:16px; height:1px; background:currentColor; }
+.mcard-num { font-family: var(--ff-display); font-size: clamp(36px,4vw,52px); font-weight: 900; letter-spacing: -2px; line-height: 1; color: var(--ink); margin-bottom: 8px; }
+.mcard-unit { font-family: var(--ff-mono); font-size: 9px; letter-spacing: .5px; color: var(--muted); margin-bottom: 16px; }
+.mcard-desc { font-size: 12px; line-height: 1.7; color: var(--muted); }
+
+/* ── SOURCES ── */
+.sources-sec { background: var(--cream); border-bottom: 1px solid var(--border); }
+.sources-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 1px; background: var(--border); }
+@media(max-width:900px) { .sources-grid { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:480px) { .sources-grid { grid-template-columns: 1fr; } }
+.src-item { background: var(--cream); padding: 22px 18px; transition: background .2s; }
+.src-item:hover { background: var(--paper); }
+.src-badge { font-family: var(--ff-mono); font-size: 7px; letter-spacing: 1px; text-transform: uppercase; padding: 2px 6px; display: inline-block; margin-bottom: 8px; }
+.free { background: rgba(14,107,94,.1); color: var(--teal); }
+.paid { background: rgba(200,146,10,.1); color: var(--gold); }
+.src-name { font-family: var(--ff-display); font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.src-desc { font-family: var(--ff-mono); font-size: 8px; letter-spacing: .3px; color: var(--muted); line-height: 1.55; }
+
+/* ── FORM SECTION ── */
+.form-sec { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; }
+@media(max-width:900px) { .form-sec { grid-template-columns: 1fr; } }
+.form-left-panel { padding: clamp(60px,8vw,100px) 5%; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--border); }
+@media(max-width:900px) { .form-left-panel { border-right: none; border-bottom: 1px solid var(--border); } }
+.form-left-panel h2 { font-family: var(--ff-display); font-size: clamp(36px,4.5vw,58px); font-weight: 900; line-height: 1.0; letter-spacing: -2px; color: var(--ink); margin-bottom: 20px; }
+.form-left-panel h2 em { font-style: italic; color: var(--gold); }
+.form-left-panel p { font-size: 14px; line-height: 1.75; color: var(--muted); max-width: 360px; margin-bottom: 40px; }
+.proofs { display: flex; flex-direction: column; gap: 12px; }
+.proof { display: flex; align-items: center; gap: 10px; font-family: var(--ff-mono); font-size: 9px; letter-spacing: 1px; color: var(--muted); }
+.proof::before { content:''; width:5px; height:5px; background: var(--teal); border-radius: 50%; flex-shrink: 0; }
+.urgency { margin-top: 36px; padding: 16px 20px; background: rgba(200,146,10,.08); border: 1px solid rgba(200,146,10,.2); display: flex; align-items: center; gap: 12px; }
+.urgency-icon { font-size: 18px; }
+.urgency-text { font-family: var(--ff-mono); font-size: 9px; letter-spacing: 1px; color: var(--gold); line-height: 1.6; }
+.urgency-text strong { font-weight: 400; }
+
+.form-right-panel { background: var(--ink); padding: clamp(60px,8vw,100px) 5%; position: relative; }
+.form-right-panel::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: linear-gradient(90deg, var(--gold), var(--teal)); }
+.form-hd { font-family: var(--ff-display); font-size: 22px; font-weight: 700; color: var(--paper); margin-bottom: 6px; letter-spacing: -.5px; }
+.form-sub { font-family: var(--ff-mono); font-size: 9px; letter-spacing: 1px; color: rgba(245,241,235,.3); margin-bottom: 36px; }
+
+.fgroup { margin-bottom: 16px; }
+.flabel { font-family: var(--ff-mono); font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,241,235,.35); display: block; margin-bottom: 7px; }
+.finput, .fselect {
+  width: 100%;
+  background: rgba(245,241,235,.05);
+  border: 1px solid rgba(245,241,235,.1);
+  color: var(--paper); padding: 13px 14px;
+  font-family: var(--ff-body); font-size: 13px; font-weight: 300;
+  outline: none; appearance: none;
+  transition: border-color .2s, background .2s;
+  cursor: pointer;
+}
+.finput::placeholder { color: rgba(245,241,235,.18); }
+.finput:focus, .fselect:focus { border-color: var(--gold); background: rgba(245,241,235,.08); }
+.fselect option { background: #111; color: var(--paper); }
+
+/* Honeypot — FIX #11 */
+.hp { position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; opacity:0; pointer-events:none; tab-index:-1; }
+
+.fsubmit {
+  width: 100%; background: var(--gold); color: var(--ink);
+  border: none; padding: 17px;
+  font-family: var(--ff-mono); font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; font-weight: 400;
+  cursor: pointer; margin-top: 6px; transition: background .25s;
+  position: relative; overflow: hidden;
+}
+.fsubmit:hover:not(:disabled) { background: var(--gold-lt); }
+.fsubmit:disabled { opacity: .6; cursor: not-allowed; }
+.fsubmit.loading::after {
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+  animation: shimmer 1s infinite;
+}
+@keyframes shimmer { 0%{transform:translateX(-100%)} 100%{transform:translateX(100%)} }
+
+.fdisclaimer { font-family: var(--ff-mono); font-size: 8px; letter-spacing: .5px; color: rgba(245,241,235,.18); text-align: center; margin-top: 14px; line-height: 1.6; }
+
+.form-error { background: rgba(139,58,30,.15); border: 1px solid rgba(139,58,30,.3); color: #e8856b; font-family: var(--ff-mono); font-size: 9px; letter-spacing: .5px; padding: 10px 14px; margin-bottom: 14px; display: none; }
+
+.form-success { display: none; text-align: center; padding: 48px 0; }
+.form-success .check { width: 56px; height: 56px; background: rgba(14,107,94,.15); border: 1px solid var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; margin: 0 auto 20px; }
+.form-success h3 { font-family: var(--ff-display); font-size: 24px; font-weight: 700; color: var(--paper); margin-bottom: 10px; letter-spacing: -.5px; }
+.form-success p { font-family: var(--ff-mono); font-size: 9px; letter-spacing: 1px; color: rgba(245,241,235,.35); line-height: 1.8; }
+
+/* ── FOOTER ── */
+footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; border-top: 1px solid rgba(245,241,235,.06); }
+.footer-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; padding-bottom: 36px; border-bottom: 1px solid rgba(245,241,235,.06); margin-bottom: 28px; }
+.footer-brand-name { font-family: var(--ff-display); font-size: 20px; font-weight: 900; letter-spacing: -.5px; margin-bottom: 4px; }
+.footer-brand-name em { font-style: italic; color: var(--gold-lt); }
+.footer-tagline { font-family: var(--ff-mono); font-size: 8px; letter-spacing: 1.5px; color: rgba(245,241,235,.25); }
+
+/* FIX #8 — Email ofuscado via CSS */
+.email-obf { unicode-bidi: bidi-override; direction: rtl; }
+
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.fcopy { font-family: var(--ff-mono); font-size: 8px; letter-spacing: 1px; color: rgba(245,241,235,.18); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+.reveal { opacity:0; transform:translateY(28px); transition:opacity .65s ease,transform .65s ease; }
+.reveal.in { opacity:1; transform:translateY(0); }
+.d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s}
+.d4{transition-delay:.32s} .d5{transition-delay:.40s}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curR"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-brand">TERRADEX <em>IA</em></a>
+  <ul class="nav-links">
+    <li><a href="#agentes">Sistema</a></li>
+    <li><a href="#mercado">Mercado</a></li>
+    <li><a href="#fuentes">Fuentes</a></li>
+    <li><a href="#acceso">Contacto</a></li>
+  </ul>
+  <button class="nav-cta" onclick="scroll2('acceso')">Solicitar demo</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" aria-label="Inicio">
+  <div class="hero-left">
+    <p class="eyebrow">Chubut, Patagonia — Plataforma SaaS</p>
+    <h1>La tierra<br>tiene <em>secretos.</em><br>Nosotros<br>los leemos.</h1>
+    <p class="hero-desc">TERRADEX IA convierte datos satelitales, geológicos y climáticos en inteligencia territorial accionable para inversores globales y productores que quieren entender el potencial real de la Patagonia.</p>
+    <div class="hero-btns">
+      <button class="btn-fill" onclick="scroll2('acceso')"><span>Solicitar acceso anticipado</span></button>
+      <button class="btn-text" onclick="scroll2('agentes')">Ver cómo funciona →</button>
+    </div>
+    <div class="hero-counters">
+      <div class="hcount"><div class="hcount-num">USD 30B+</div><div class="hcount-label">Comprometidos<br>en RIGI minería</div></div>
+      <div class="hcount"><div class="hcount-num">22</div><div class="hcount-label">Fuentes de datos<br>integradas</div></div>
+      <div class="hcount"><div class="hcount-num">6 min</div><div class="hcount-label">Tiempo de<br>generación reporte</div></div>
+      <div class="hcount"><div class="hcount-num">3.009x</div><div class="hcount-label">ROI del pipeline<br>sobre costo diario</div></div>
+    </div>
+  </div>
+
+  <div class="hero-right" aria-hidden="true">
+    <svg viewBox="0 0 460 560" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="rg1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#c8920a" stop-opacity=".22"/><stop offset="100%" stop-color="#c8920a" stop-opacity="0"/></radialGradient>
+        <radialGradient id="rg2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#0e6b5e" stop-opacity=".18"/><stop offset="100%" stop-color="#0e6b5e" stop-opacity="0"/></radialGradient>
+        <radialGradient id="rg3" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#3c78dc" stop-opacity=".15"/><stop offset="100%" stop-color="#3c78dc" stop-opacity="0"/></radialGradient>
+        <pattern id="pg" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M22 0L0 0 0 22" fill="none" stroke="rgba(245,241,235,.04)" stroke-width=".4"/></pattern>
+      </defs>
+      <rect width="460" height="560" fill="#0a0d0f"/>
+      <rect width="460" height="560" fill="url(#pg)"/>
+      <path d="M60 60 L360 60 L360 500 L140 500 L100 440 L60 380Z" fill="rgba(245,241,235,.015)" stroke="rgba(245,241,235,.07)" stroke-width=".8" stroke-dasharray="5,4"/>
+      <ellipse cx="220" cy="210" rx="96" ry="68" fill="rgba(200,146,10,.06)" stroke="rgba(200,146,10,.22)" stroke-width=".7"/>
+      <ellipse cx="220" cy="210" rx="96" ry="68" fill="url(#rg1)" filter="blur(8px)"/>
+      <path d="M80 154 Q118 136 168 156 Q186 174 178 206 Q160 224 134 230 Q96 222 86 200 Q76 178 80 154Z" fill="rgba(14,107,94,.06)" stroke="rgba(14,107,94,.28)" stroke-width=".7"/>
+      <ellipse cx="88" cy="180" rx="54" ry="38" fill="url(#rg2)" filter="blur(8px)"/>
+      <ellipse cx="316" cy="155" rx="52" ry="40" fill="rgba(60,120,220,.05)" stroke="rgba(60,120,220,.2)" stroke-width=".7"/>
+      <ellipse cx="316" cy="155" rx="52" ry="40" fill="url(#rg3)" filter="blur(8px)"/>
+      <ellipse cx="200" cy="400" rx="80" ry="44" fill="rgba(139,58,30,.05)" stroke="rgba(200,100,50,.18)" stroke-width=".7"/>
+      <circle cx="220" cy="192" r="4" fill="#c8920a" opacity=".85"><animate attributeName="r" values="4;11;4" dur="2.3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".85;.08;.85" dur="2.3s" repeatCount="indefinite"/></circle>
+      <circle cx="88" cy="180" r="4" fill="#0e6b5e" opacity=".85"><animate attributeName="r" values="4;11;4" dur="2.9s" repeatCount="indefinite"/><animate attributeName="opacity" values=".85;.08;.85" dur="2.9s" repeatCount="indefinite"/></circle>
+      <circle cx="316" cy="142" r="4" fill="#3c78dc" opacity=".85"><animate attributeName="r" values="4;11;4" dur="1.9s" repeatCount="indefinite"/><animate attributeName="opacity" values=".85;.08;.85" dur="1.9s" repeatCount="indefinite"/></circle>
+      <circle cx="200" cy="392" r="4" fill="#c86432" opacity=".85"><animate attributeName="r" values="4;11;4" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".85;.08;.85" dur="3.2s" repeatCount="indefinite"/></circle>
+      <path id="orb" d="M40 28 Q360 -8 440 172" fill="none"/>
+      <path d="M40 28 Q360 -8 440 172" fill="none" stroke="rgba(200,146,10,.12)" stroke-width=".8" stroke-dasharray="4,4"/>
+      <circle r="5" fill="rgba(200,146,10,.65)"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#orb"/></animateMotion></circle>
+      <rect x="60" y="0" width="300" height="1.5" fill="rgba(14,107,94,.4)"><animateTransform attributeName="transform" type="translate" from="0 0" to="0 560" dur="3.8s" repeatCount="indefinite"/></rect>
+      <text x="220" y="188" fill="rgba(200,146,10,.65)" font-size="7" font-family="DM Mono,monospace" text-anchor="middle" letter-spacing="1.2">MESETA CENTRAL</text>
+      <text x="88" y="175" fill="rgba(14,107,94,.65)" font-size="6.5" font-family="DM Mono,monospace" text-anchor="middle" letter-spacing="1">VALLE CHUBUT</text>
+      <text x="316" y="137" fill="rgba(60,120,220,.65)" font-size="6.5" font-family="DM Mono,monospace" text-anchor="middle" letter-spacing="1">GOLFO</text>
+      <text x="200" y="386" fill="rgba(200,100,50,.65)" font-size="6.5" font-family="DM Mono,monospace" text-anchor="middle" letter-spacing="1">PATAGONIA SUR</text>
+      <text x="66" y="536" fill="rgba(245,241,235,.14)" font-size="6.5" font-family="DM Mono,monospace">42°S</text>
+      <text x="196" y="536" fill="rgba(245,241,235,.14)" font-size="6.5" font-family="DM Mono,monospace">44°S</text>
+      <text x="318" y="536" fill="rgba(245,241,235,.14)" font-size="6.5" font-family="DM Mono,monospace">46°S</text>
+    </svg>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="tick">Sentinel-2 <b>·</b> SAOCOM Banda L <b>·</b> SEGEMAR <b>·</b> Open-Meteo <b>·</b> NASA FIRMS <b>·</b> Macrostrat API <b>·</b> OpenMindat <b>·</b> Twelve Data <b>·</b> VENG SA <b>·</b> PatagoniaMet <b>·</b> Ministerio Hidrocarburos Chubut <b>·</b></div>
+    <div class="tick" aria-hidden="true">Sentinel-2 <b>·</b> SAOCOM Banda L <b>·</b> SEGEMAR <b>·</b> Open-Meteo <b>·</b> NASA FIRMS <b>·</b> Macrostrat API <b>·</b> OpenMindat <b>·</b> Twelve Data <b>·</b> VENG SA <b>·</b> PatagoniaMet <b>·</b> Ministerio Hidrocarburos Chubut <b>·</b></div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="sec problem" id="problema" aria-label="El problema">
+  <div class="problem-grid">
+    <div class="problem-left reveal">
+      <div class="bignumber">13M</div>
+      <h2>Hectáreas de Patagonia<br>en manos de capital <em>global.</em></h2>
+      <p>El capital mundial ya eligió la Patagonia. Lo que falta es la inteligencia territorial para que esas decisiones sean precisas, rentables y escalables.</p>
+    </div>
+    <div class="stats-stack reveal d2">
+      <div class="stat-row"><div><div class="stat-lbl">Inversión RIGI Energía + Minería</div><div class="stat-val">USD 30B+</div></div><div class="stat-side">Comprometidos en Argentina 2025–2026</div></div>
+      <div class="stat-row"><div><div class="stat-lbl">Mercado SaaS geoespacial LATAM</div><div class="stat-val">USD 72B</div></div><div class="stat-side">Proyección 2034 · 14% crecimiento anual</div></div>
+      <div class="stat-row"><div><div class="stat-lbl">Fondos internacionales activos en Chubut</div><div class="stat-val">Récord</div></div><div class="stat-side">Consultas activas registradas 2025–2026</div></div>
+      <div class="stat-row"><div><div class="stat-lbl">Competidores con foco Chubut + IA</div><div class="stat-val">Cero</div></div><div class="stat-side">El nicho está vacante hoy mismo</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section class="sec agents-sec" id="agentes" aria-label="Sistema de agentes">
+  <div class="sec-label light reveal">Pipeline de inteligencia artificial</div>
+  <h2 class="agents-headline reveal d1">Cinco agentes<br>de <em>IA autónoma.</em><br>Un reporte listo<br>en 6 minutos.</h2>
+  <div class="agents-row">
+    <div class="agent-card reveal"><div class="agent-n">01</div><span class="agent-ic">🛰️</span><div class="agent-nm">Recolector</div><div class="agent-mdl">Haiku 4.5</div><div class="agent-txt">Descarga automática de 22 fuentes. Opera 24/7 sin intervención humana.</div></div>
+    <div class="agent-card reveal d1"><div class="agent-n">02</div><span class="agent-ic">⚙️</span><div class="agent-nm">Procesador</div><div class="agent-mdl">Haiku 4.5</div><div class="agent-txt">Calcula NDVI, EVI, SWIR. Detecta anomalías geológicas automáticamente.</div></div>
+    <div class="agent-card reveal d2"><div class="agent-n">03</div><span class="agent-ic">🧠</span><div class="agent-nm">Analista</div><div class="agent-mdl">Sonnet 4.6</div><div class="agent-txt">Razonamiento profundo. Estima potencial y ROI por zona territorial.</div></div>
+    <div class="agent-card reveal d3"><div class="agent-n">04</div><span class="agent-ic">✍️</span><div class="agent-nm">Redactor</div><div class="agent-mdl">Opus 4.6</div><div class="agent-txt">Genera reportes de 30+ páginas en español e inglés. Listos para inversores.</div></div>
+    <div class="agent-card reveal d4"><div class="agent-n">05</div><span class="agent-ic">👁️</span><div class="agent-nm">Monitor</div><div class="agent-mdl">Haiku 4.5</div><div class="agent-txt">Vigila zonas suscritas 24/7. Alertas automáticas ante cambios críticos.</div></div>
+  </div>
+  <div class="roi-strip reveal">
+    <div class="roi-big">
+      <div class="roi-lbl">ROI del pipeline</div>
+      <div class="roi-num">3.009x</div>
+      <div class="roi-sub">USD 4.82 costo · USD 14.500 generados · por día</div>
+    </div>
+    <div class="roi-text">
+      <h3>Costo real de operar TERRADEX IA</h3>
+      <p>La arquitectura multi-modelo optimiza cada tarea. El pipeline cuesta menos de USD 5 por día y genera reportes que se venden entre USD 3.500 y USD 50.000.</p>
+      <div class="cost-table">
+        <div class="ct-row"><span>Haiku 4.5 — Recolector + Procesador + Monitor</span><span>$0.91 / día</span></div>
+        <div class="ct-row"><span>Sonnet 4.6 — Analista</span><span>$1.24 / día</span></div>
+        <div class="ct-row"><span>Opus 4.6 — Redactor (por reporte)</span><span>$0.45 / rep.</span></div>
+        <div class="ct-row"><span>Infraestructura cloud total</span><span>$2.67 / día</span></div>
+        <div class="ct-row ct-total"><span>COSTO OPERATIVO MENSUAL</span><span>USD 133</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section class="sec market-sec" id="mercado" aria-label="Mercado objetivo">
+  <div class="sec-label reveal">Oportunidad de mercado</div>
+  <div class="market-cards">
+    <div class="mcard reveal"><div class="mcard-tag">Inversores globales</div><div class="mcard-num">USD 30B</div><div class="mcard-unit">comprometidos en RIGI energía + minería</div><div class="mcard-desc">Rio Tinto, McEwen Copper, Glencore y POSCO tomando decisiones de miles de millones en Argentina. Cada proyecto requiere due diligence territorial previo.</div></div>
+    <div class="mcard reveal d2"><div class="mcard-tag">Tierras patagónicas</div><div class="mcard-num">USD 600M</div><div class="mcard-unit">proyectados en compra de tierras 2025–2028</div><div class="mcard-desc">Fondos chilenos, europeos y árabes hacen consultas récord en Chubut y Río Negro. Capital del Golfo Pérsico ya opera activamente en la región.</div></div>
+    <div class="mcard reveal d3"><div class="mcard-tag">SaaS geoespacial LATAM</div><div class="mcard-num">USD 72B</div><div class="mcard-unit">proyección mercado 2034 · crecimiento 14% anual</div><div class="mcard-desc">La inteligencia geoespacial con IA aplicada a agricultura y minería es el sector de mayor crecimiento en tecnología para recursos naturales en LATAM.</div></div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="sec sources-sec" id="fuentes" aria-label="Fuentes de datos">
+  <div class="sec-label reveal">22 fuentes de datos validadas</div>
+  <div class="sources-grid">
+    <div class="src-item reveal"><span class="src-badge free">Libre</span><div class="src-name">Sentinel-2</div><div class="src-desc">ESA · Imágenes 10m · NDVI EVI SWIR · revisita 3-5 días</div></div>
+    <div class="src-item reveal d1"><span class="src-badge free">Libre</span><div class="src-name">SEGEMAR</div><div class="src-desc">Geología y mineralogía · yacimientos Argentina · API pública</div></div>
+    <div class="src-item reveal d2"><span class="src-badge free">Libre</span><div class="src-name">Open-Meteo</div><div class="src-desc">80+ años clima horario · 10km resolución · sin API key</div></div>
+    <div class="src-item reveal d3"><span class="src-badge free">Libre</span><div class="src-name">NASA FIRMS</div><div class="src-desc">Incendios tiempo real · alertas en 3 horas · cobertura global</div></div>
+    <div class="src-item reveal d4"><span class="src-badge free">Libre</span><div class="src-name">Macrostrat</div><div class="src-desc">33.903 unidades geológicas · 225 mapas · cubre Patagonia</div></div>
+    <div class="src-item reveal"><span class="src-badge free">Libre</span><div class="src-name">OpenMindat</div><div class="src-desc">Base mineralógica mundial · API abierta FAIR 2024</div></div>
+    <div class="src-item reveal d1"><span class="src-badge free">Libre</span><div class="src-name">PatagoniaMet</div><div class="src-desc">Dataset hidrometeorológico Patagonia con control de calidad</div></div>
+    <div class="src-item reveal d2"><span class="src-badge free">Libre</span><div class="src-name">Min. Hidrocarburos</div><div class="src-desc">GIS público Chubut · mapa recursos mineros · listado productores</div></div>
+    <div class="src-item reveal d3"><span class="src-badge paid">Pago</span><div class="src-name">VENG SAOCOM</div><div class="src-desc">SAR Banda L · único en América · penetra suelo y vegetación</div></div>
+    <div class="src-item reveal d4"><span class="src-badge paid">Pago</span><div class="src-name">Twelve Data</div><div class="src-desc">Precios plata, zinc, plomo, vacunos · 99.9% uptime verificado</div></div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-sec" id="acceso" aria-label="Solicitar acceso">
+  <div class="form-left-panel">
+    <h2 class="reveal">Acceso<br><em>anticipado.</em></h2>
+    <p class="reveal d1">TERRADEX IA está en fase de lanzamiento. Registrá tu interés y sé de los primeros en acceder a la plataforma.</p>
+    <div class="proofs reveal d2">
+      <div class="proof">Plataforma prototipada y funcional</div>
+      <div class="proof">5 agentes de IA construidos y operativos</div>
+      <div class="proof">22 fuentes de datos validadas</div>
+      <div class="proof">Propuesta activa a VENG SA en curso</div>
+      <div class="proof">Lanzamiento previsto Q3 2025</div>
+    </div>
+    <div class="urgency reveal d3">
+      <div class="urgency-icon">⚡</div>
+      <div class="urgency-text"><strong>Los primeros 10 registros</strong> reciben una demo personal sin cargo con el fundador.</div>
+    </div>
+  </div>
+
+  <div class="form-right-panel">
+    <div id="formWrap">
+      <div class="form-hd">Solicitar acceso anticipado</div>
+      <div class="form-sub">Demo personal · Sin compromiso · Respuesta en 48 horas</div>
+      <div class="form-error" id="formErr" role="alert" aria-live="assertive"></div>
+
+      <form id="mainForm" novalidate autocomplete="on">
+        <!-- FIX #11 — Honeypot mejorado completamente invisible -->
+        <div class="hp" aria-hidden="true">
+          <input type="text" name="website" tabindex="-1" autocomplete="off" value="">
+        </div>
+
+        <div class="fgroup">
+          <label class="flabel" for="fname">Nombre completo *</label>
+          <input class="finput" type="text" id="fname" name="name"
+            placeholder="Juan García" autocomplete="name"
+            required minlength="2" maxlength="100">
+        </div>
+        <div class="fgroup">
+          <label class="flabel" for="femail">Email profesional *</label>
+          <input class="finput" type="email" id="femail" name="email"
+            placeholder="juan@empresa.com" autocomplete="email"
+            required maxlength="254">
+        </div>
+        <div class="fgroup">
+          <label class="flabel" for="fcompany">Empresa / Organización *</label>
+          <!-- FIX #11 — autocomplete off en campo empresa -->
+          <input class="finput" type="text" id="fcompany" name="company"
+            placeholder="Fondo · Empresa · Estudio"
+            autocomplete="off" required minlength="2" maxlength="100">
+        </div>
+        <div class="fgroup">
+          <label class="flabel" for="fprofile">Perfil *</label>
+          <select class="fselect" id="fprofile" name="profile"
+            autocomplete="off" required>
+            <option value="" disabled selected>Seleccionar perfil...</option>
+            <option value="fondo">Fondo de inversión / Family office</option>
+            <option value="productor">Productor agropecuario zona núcleo</option>
+            <option value="minera">Empresa minera / Exploración</option>
+            <option value="consultor">Consultor / Asesor de inversiones</option>
+            <option value="gobierno">Organismo gubernamental</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="fgroup">
+          <label class="flabel" for="fzone">Zona de interés</label>
+          <select class="fselect" id="fzone" name="zone" autocomplete="off">
+            <option value="" disabled selected>Seleccionar zona...</option>
+            <option value="meseta">Meseta Central Norte — Potencial minero</option>
+            <option value="valle">Valle del Río Chubut — Agricultura</option>
+            <option value="golfo">Golfo San Jorge — Hidrocarburos</option>
+            <option value="sur">Patagonia Sur — Ganadería</option>
+            <option value="toda">Toda la provincia</option>
+            <option value="nd">Aún no definido</option>
+          </select>
+        </div>
+
+        <button type="submit" class="fsubmit" id="fsub">
+          Solicitar acceso anticipado
+        </button>
+        <p class="fdisclaimer">
+          Sin compromiso · Sin spam · Tus datos no serán compartidos con terceros
+        </p>
+      </form>
+    </div>
+
+    <div class="form-success" id="formOk" role="status" aria-live="polite">
+      <div class="check">✓</div>
+      <h3>Registro recibido.</h3>
+      <p>Nos pondremos en contacto en las<br>próximas 48 horas para coordinar<br>tu demo personal con el fundador.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER — FIX #6 año 2026 · FIX #8 email ofuscado -->
+<footer>
+  <div class="footer-row">
+    <div>
+      <div class="footer-brand-name">TERRADEX <em>IA</em></div>
+      <div class="footer-tagline">Inteligencia territorial para el desarrollo de recursos · Chubut, Argentina · 2026</div>
+    </div>
+    <div id="footer-contact"></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="fcopy">© 2026 TERRADEX IA · Todos los derechos reservados</span>
+    <span class="fcopy">Plataforma SaaS · Agentes IA · Claude API · SAOCOM · Chubut</span>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  // ── FIX #12 — Todo encapsulado en IIFE, sin globals ──
+
+  // ── FIX #1 — API key NUNCA en frontend
+  // El formulario llama a /api/lead (Vercel Serverless Function)
+  // La función serverless tiene la API key en variables de entorno
+  // Ver archivo /api/lead.js que debe deployarse junto con esta página
+  const ENDPOINT = '/api/lead';
+
+  // ── FIX #8 — Email ofuscado: construido por JS, no en HTML ──
+  (function buildEmail() {
+    const u = 'contacto';
+    const d = 'terradex.com';
+    const el = document.getElementById('footer-contact');
+    if (!el) return;
+    const a = document.createElement('a');
+    a.href = 'mailto:' + u + '@' + d;
+    a.textContent = u + '@' + d;
+    a.style.cssText = 'font-family:var(--ff-mono);font-size:10px;letter-spacing:1px;color:var(--gold-lt);text-decoration:none;display:block;';
+    el.appendChild(a);
+  })();
+
+  // ── CURSOR — FIX #10: pausa cuando página no está visible ──
+  (function initCursor() {
+    const c = document.getElementById('cur');
+    const r = document.getElementById('curR');
+    if (!c || !r) return;
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    let rafId = null;
+    let active = true;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      c.style.cssText = `left:${mx}px;top:${my}px`;
+    });
+
+    function raf() {
+      if (!active) { rafId = null; return; }
+      rx += (mx - rx) * .1;
+      ry += (my - ry) * .1;
+      r.style.cssText = `left:${rx}px;top:${ry}px`;
+      rafId = requestAnimationFrame(raf);
+    }
+    rafId = requestAnimationFrame(raf);
+
+    // FIX #10 — Pausar RAF cuando pestaña no está visible
+    document.addEventListener('visibilitychange', () => {
+      active = !document.hidden;
+      if (active && !rafId) rafId = requestAnimationFrame(raf);
+    });
+
+    document.querySelectorAll('a,button,input,select').forEach(el => {
+      el.addEventListener('mouseenter', () => c.classList.add('cursor-lg'));
+      el.addEventListener('mouseleave', () => c.classList.remove('cursor-lg'));
+    });
+  })();
+
+  // ── NAV SCROLL ──
+  (function initNav() {
+    const nav = document.getElementById('nav');
+    if (!nav) return;
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+  })();
+
+  // ── REVEAL ON SCROLL ──
+  (function initReveal() {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  })();
+
+  // ── SCROLL HELPER — FIX #12: encapsulada, no global ──
+  function scroll2(id) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+  // Exponer mínimamente para onclick handlers inline
+  window.__tdx = { scroll2 };
+
+  // Reemplazar onclick inline para no depender de globals
+  document.querySelectorAll('[onclick]').forEach(el => {
+    const fn = el.getAttribute('onclick');
+    el.removeAttribute('onclick');
+    el.addEventListener('click', () => {
+      if (fn.includes('scroll2')) {
+        const id = fn.match(/scroll2\('(.+?)'\)/)?.[1];
+        if (id) scroll2(id);
+      }
+    });
+  });
+
+  // ── BLOCKED EMAIL DOMAINS (spam) ──
+  const BLOCKED_DOMAINS = [
+    'mailinator.com','tempmail.com','guerrillamail.com','10minutemail.com',
+    'throwam.com','fakeinbox.com','yopmail.com','trashmail.com',
+    'sharklasers.com','spam4.me','dispostable.com'
+  ];
+
+  // ── FIX #2 — Sanitizar strings antes de mostrar en DOM ──
+  function sanitize(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function showError(msg) {
+    const err = document.getElementById('formErr');
+    if (!err) return;
+    // Usar textContent, nunca innerHTML — FIX #2
+    err.textContent = msg;
+    err.style.display = 'block';
+    err.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function hideError() {
+    const err = document.getElementById('formErr');
+    if (err) err.style.display = 'none';
+  }
+
+  // ── FORM ──
+  const form = document.getElementById('mainForm');
+  if (!form) return;
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    hideError();
+
+    const btn = document.getElementById('fsub');
+
+    // FIX #11 — Honeypot check
+    const hp = this.querySelector('input[name="website"]');
+    if (hp && hp.value.trim() !== '') return; // Bot silencioso
+
+    // Collect + validate
+    const name    = this.name.value.trim();
+    const email   = this.email.value.trim().toLowerCase();
+    const company = this.company.value.trim();
+    const profile = this.profile.value;
+    const zone    = this.zone?.value || 'nd';
+
+    // Required fields
+    if (!name || !email || !company || !profile) {
+      showError('Por favor completá todos los campos requeridos.');
+      return;
+    }
+
+    // Name length
+    if (name.length < 2 || name.length > 100) {
+      showError('El nombre debe tener entre 2 y 100 caracteres.');
+      return;
+    }
+
+    // Email format
+    const emailRx = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRx.test(email)) {
+      showError('Por favor ingresá un email válido.');
+      return;
+    }
+
+    // FIX #6 — Block disposable email domains
+    const emailDomain = email.split('@')[1];
+    if (BLOCKED_DOMAINS.includes(emailDomain)) {
+      showError('Por favor usá tu email profesional o corporativo.');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    btn.classList.add('loading');
+
+    // FIX #5 — AbortController con timeout de 10 segundos
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+    try {
+      // FIX #1 — Llamada al endpoint serverless, nunca a Airtable directamente
+      // La API key vive en Vercel Environment Variables, nunca en el frontend
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
+        body: JSON.stringify({ name, email, company, profile, zone })
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!res.ok) {
+        // FIX #2 — No mostrar mensajes de error del server directamente
+        const status = res.status;
+        if (status === 429) {
+          throw new Error('Demasiados intentos. Por favor esperá unos minutos.');
+        } else if (status >= 500) {
+          throw new Error('Error del servidor. Por favor intentá más tarde.');
+        } else {
+          throw new Error('No se pudo completar el registro. Intentá nuevamente.');
+        }
+      }
+
+      // Success
+      document.getElementById('formWrap').style.display = 'none';
+      document.getElementById('formOk').style.display   = 'block';
+
+      // Analytics (si GA4 está presente)
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'Form',
+          event_label: profile,
+          value: 1
+        });
+      }
+
+    } catch (ex) {
+      clearTimeout(timeoutId);
+      btn.disabled = false;
+      btn.textContent = 'Solicitar acceso anticipado';
+      btn.classList.remove('loading');
+
+      if (ex.name === 'AbortError') {
+        showError('La conexión tardó demasiado. Verificá tu internet e intentá nuevamente.');
+      } else {
+        // FIX #2 — Sanitizar mensaje de error antes de mostrar
+        const safeMsg = ex.message || 'Error inesperado. Por favor intentá nuevamente.';
+        showError(safeMsg.length < 200 ? safeMsg : 'Error inesperado. Por favor intentá nuevamente.');
+      }
+
+      // FIX #4 — NUNCA loguear datos del usuario en producción
+      // console.error solo en desarrollo
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        console.error('[TERRADEX DEV] Form error:', ex.name);
+      }
+    }
+  });
+
+})(); // fin IIFE
+</script>
+
+<!--
+═══════════════════════════════════════════════════════
+  INSTRUCCIONES DE DEPLOY — LEER ANTES DE PUBLICAR
+═══════════════════════════════════════════════════════
+
+1. VERCEL SERVERLESS FUNCTION
+   Crear archivo /api/lead.js con este contenido:
+
+   export default async function handler(req, res) {
+     if (req.method !== 'POST') return res.status(405).end();
+
+     const { name, email, company, profile, zone } = req.body;
+     if (!name || !email || !company || !profile) {
+       return res.status(400).json({ error: 'Missing fields' });
+     }
+
+     // Rate limiting básico por IP
+     // (Cloudflare Pro lo maneja automáticamente)
+
+     const payload = {
+       fields: {
+         Nombre: name.slice(0, 100),
+         Email: email.slice(0, 254),
+         Empresa: company.slice(0, 100),
+         Perfil: profile,
+         Zona: zone || 'nd',
+         Fecha: new Date().toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' }),
+         Fuente: 'Landing Page TERRADEX IA'
+       }
+     };
+
+     const r = await fetch(
+       `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/Leads`,
+       {
+         method: 'POST',
+         headers: {
+           Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+           'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(payload)
+       }
+     );
+
+     if (!r.ok) return res.status(500).json({ error: 'Storage error' });
+     return res.status(200).json({ ok: true });
+   }
+
+2. VARIABLES DE ENTORNO EN VERCEL
+   En tu proyecto Vercel → Settings → Environment Variables:
+   AIRTABLE_API_KEY = tu_token_personal_de_airtable
+   AIRTABLE_BASE_ID = appXXXXXXXXXXXXXX
+
+3. VERCEL.JSON — Headers de seguridad
+   Crear archivo vercel.json:
+   {
+     "headers": [
+       {
+         "source": "/(.*)",
+         "headers": [
+           { "key": "X-Frame-Options", "value": "DENY" },
+           { "key": "X-Content-Type-Options", "value": "nosniff" },
+           { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+           { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+           { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+         ]
+       }
+     ],
+     "redirects": [
+       { "source": "/(.*)", "has": [{"type": "header", "key": "x-forwarded-proto", "value": "http"}], "destination": "https://terradex.com/$1", "permanent": true }
+     ]
+   }
+
+4. CLOUDFLARE
+   - Apuntar dominio a Cloudflare
+   - Activar plan Pro (USD 10/mes)
+   - Habilitar WAF
+   - Crear regla rate limiting: max 5 req/min por IP al endpoint /api/lead
+
+═══════════════════════════════════════════════════════
+-->
+</body>
+</html>
