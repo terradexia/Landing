@@ -1,16 +1,25 @@
 export const config = {
-  api: { bodyParser: { sizeLimit: '1mb' } }
+  api: { bodyParser: true }
 };
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+
+  let body = req.body;
+
+  if (typeof body === 'string') {
+    try { body = JSON.parse(body); } catch(e) { body = {}; }
   }
 
-  const { name, email, company, profile, zone } = req.body || {};
+  const { name, email, company, profile, zone } = body || {};
 
   if (!name || !email || !company || !profile) {
-    return res.status(400).json({ error: 'Missing fields' });
+    return res.status(400).json({ error: 'Missing fields', received: body });
   }
 
   const url = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblI3tfr8x5E23L4y`;
