@@ -943,12 +943,11 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
     if (hp && hp.value.trim() !== '') return; // Bot silencioso
 
     // Collect + validate
-    const name    = this.name.value.trim();
-    const email   = this.email.value.trim().toLowerCase();
-    const company = this.company.value.trim();
-    const profile = this.profile.value;
-    const zone    = this.zone?.value || 'nd';
-
+    const name    = document.getElementById('fname').value.trim();
+    const email   = document.getElementById('femail').value.trim().toLowerCase();
+    const company = document.getElementById('fcompany').value.trim();
+    const profile = document.getElementById('fprofile').value;
+    const zone    = document.getElementById('fzone')?.value || 'nd';
     // Required fields
     if (!name || !email || !company || !profile) {
       showError('Por favor completá todos los campos requeridos.');
