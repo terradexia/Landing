@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing fields' });
   }
 
-  const url = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/tblI3tfr8x5E23L4y`;
+  const url = `https://api.airtable.com/v0/appE3PAPCMwz9Ykt1/tblI3tfr8x5E23L4y`;
 
   try {
     const r = await fetch(url, {
