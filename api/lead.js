@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     const r = await fetch(url, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.AIRTABLE_API_KEY}`,
+        'Authorization': `Bearer pat4Z68OeQheeZdAs.9c559aaa89ced823168aa8617549925c4edf19f5a0baa29870f6a5d766e787dd`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
