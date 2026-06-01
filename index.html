@@ -7,10 +7,10 @@
 <!-- ── CSP — FIX #3 ── -->
 <meta http-equiv="Content-Security-Policy"
   content="default-src 'self';
-  script-src 'self' 'unsafe-inline';
+  script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
   font-src https://fonts.gstatic.com;
-  connect-src 'self' https://api.terradex.com;
+  connect-src 'self' https://vitals.vercel-insights.com;
   img-src 'self' data: https:;
   frame-ancestors 'none';">
 
@@ -26,14 +26,14 @@
 <meta name="keywords" content="reporte Chubut 2026, RIGI Chubut, inteligencia territorial, Patagonia, inversión minería Argentina, datos satelitales, SaaS geoespacial, SAOCOM, due diligence territorial">
 <meta name="author" content="TERRADEX IA">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://terradex.com">
+<link rel="canonical" href="https://terradexia.com/">
 
 <!-- ── OPEN GRAPH ── -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://terradex.com">
+<meta property="og:url" content="https://terradexia.com/">
 <meta property="og:title" content="Reporte Chubut 2026 — TERRADEX IA">
 <meta property="og:description" content="La oportunidad RIGI que el mercado no vio. Reporte gratuito de 18 páginas sobre minería, agro, energía y logística en Chubut. Datos oficiales y tesis de inversión.">
-<meta property="og:image" content="https://terradex.com/og-image.jpg">
+<meta property="og:image" content="https://terradexia.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="TERRADEX IA — Reporte Chubut 2026">
@@ -44,31 +44,43 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Reporte Chubut 2026 — TERRADEX IA">
 <meta name="twitter:description" content="La oportunidad RIGI que el mercado no vio. Reporte gratuito de inteligencia territorial sobre Chubut.">
-<meta name="twitter:image" content="https://terradex.com/og-image.jpg">
+<meta name="twitter:image" content="https://terradexia.com/og-image.jpg">
 
 <!-- ── SCHEMA.ORG ── -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
+  "@type": "Organization",
   "name": "TERRADEX IA",
-  "description": "Plataforma SaaS de inteligencia territorial con agentes de IA para inversores en Patagonia, Argentina",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web",
-  "url": "https://terradex.com",
-  "offers": {
-    "@type": "Offer",
-    "price": "3500",
-    "priceCurrency": "USD"
-  },
+  "description": "Plataforma SaaS de inteligencia territorial con agentes de IA para inversores en la Patagonia argentina, con foco en Chubut.",
+  "url": "https://terradexia.com",
+  "logo": "https://terradexia.com/og-image.jpg",
+  "foundingDate": "2026",
   "areaServed": {
     "@type": "Place",
-    "name": "Chubut, Argentina"
+    "name": "Chubut, Patagonia, Argentina"
   },
+  "sameAs": [
+    "https://www.linkedin.com/company/terradexia",
+    "https://x.com/terradexia",
+    "https://instagram.com/terradexia",
+    "https://youtube.com/@terradexia"
+  ]
+}
+</script>
+<!-- TODO: confirmar/ajustar las URLs sociales de sameAs cuando estén publicadas -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "TERRADEX IA",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://terradexia.com",
   "provider": {
     "@type": "Organization",
     "name": "TERRADEX IA",
-    "url": "https://terradex.com"
+    "url": "https://terradexia.com"
   }
 }
 </script>
@@ -553,6 +565,12 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
 .d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s}
 .d4{transition-delay:.32s} .d5{transition-delay:.40s}
 </style>
+
+<!-- ── Vercel Web Analytics (liviano, sin cookies) — FIX #6 ── -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -574,18 +592,18 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
 <!-- HERO -->
 <section class="hero" aria-label="Inicio">
   <div class="hero-left">
-    <p class="eyebrow">Reporte Chubut 2026 — Disponible ahora · Gratuito</p>
-    <h1>La tierra<br>tiene <em>secretos.</em><br>Nosotros<br>los leemos.</h1>
-    <p class="hero-desc">TERRADEX IA convierte datos satelitales, geológicos y climáticos en inteligencia territorial accionable para inversores globales y productores que quieren entender el potencial real de la Patagonia.</p>
+    <p class="eyebrow">Inteligencia territorial · Patagonia argentina</p>
+    <h1>Inteligencia<br>territorial con <em>IA</em><br>para decisiones<br>de <em>inversión.</em></h1>
+    <p class="hero-desc"><em>La tierra tiene secretos. Nosotros los leemos.</em> Reportes accionables sobre activos mineros, energéticos y agropecuarios en Chubut: datos satelitales, geológicos y legales integrados por agentes de IA.</p>
     <div class="hero-btns">
       <button class="btn-fill" onclick="scroll2('acceso')"><span>Descargar reporte Chubut 2026</span></button>
       <button class="btn-text" onclick="scroll2('agentes')">Ver cómo funciona →</button>
     </div>
     <div class="hero-counters">
-      <div class="hcount"><div class="hcount-num">USD 30B+</div><div class="hcount-label">Comprometidos<br>en RIGI minería</div></div>
+      <div class="hcount"><div class="hcount-num">USD 30B+</div><div class="hcount-label">Comprometidos<br>en RIGI minería</div></div><!-- TODO: citar fuente -->
       <div class="hcount"><div class="hcount-num">22</div><div class="hcount-label">Fuentes de datos<br>integradas</div></div>
-      <div class="hcount"><div class="hcount-num">6 min</div><div class="hcount-label">Tiempo de<br>generación reporte</div></div>
-      <div class="hcount"><div class="hcount-num">3.009x</div><div class="hcount-label">ROI del pipeline<br>sobre costo diario</div></div>
+      <div class="hcount"><div class="hcount-num">SAOCOM</div><div class="hcount-label">Radar SAR Banda L<br>único en América</div></div>
+      <div class="hcount"><div class="hcount-num">Días</div><div class="hcount-label">No meses<br>de due diligence</div></div>
     </div>
   </div>
 
@@ -643,9 +661,9 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
       <p>El capital mundial ya eligió la Patagonia. Lo que falta es la inteligencia territorial para que esas decisiones sean precisas, rentables y escalables.</p>
     </div>
     <div class="stats-stack reveal d2">
-      <div class="stat-row"><div><div class="stat-lbl">Inversión RIGI Energía + Minería</div><div class="stat-val">USD 30B+</div></div><div class="stat-side">Comprometidos en Argentina 2025–2026</div></div>
-      <div class="stat-row"><div><div class="stat-lbl">Mercado SaaS geoespacial LATAM</div><div class="stat-val">USD 72B</div></div><div class="stat-side">Proyección 2034 · 14% crecimiento anual</div></div>
-      <div class="stat-row"><div><div class="stat-lbl">Fondos internacionales activos en Chubut</div><div class="stat-val">Récord</div></div><div class="stat-side">Consultas activas registradas 2025–2026</div></div>
+      <div class="stat-row"><div><div class="stat-lbl">Inversión RIGI Energía + Minería</div><div class="stat-val">USD 30B+</div></div><div class="stat-side">Comprometidos en Argentina 2025–2026</div></div><!-- TODO: citar fuente -->
+      <div class="stat-row"><div><div class="stat-lbl">Mercado SaaS geoespacial LATAM</div><div class="stat-val">USD 72B</div></div><div class="stat-side">Proyección 2034 · 14% crecimiento anual</div></div><!-- TODO: citar fuente -->
+      <div class="stat-row"><div><div class="stat-lbl">Fondos internacionales activos en Chubut</div><div class="stat-val">Récord</div></div><div class="stat-side">Consultas activas registradas 2025–2026</div></div><!-- TODO: citar fuente -->
       <div class="stat-row"><div><div class="stat-lbl">Competidores con foco Chubut + IA</div><div class="stat-val">Cero</div></div><div class="stat-side">El nicho está vacante hoy mismo</div></div>
     </div>
   </div>
@@ -654,29 +672,28 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
 <!-- AGENTS -->
 <section class="sec agents-sec" id="agentes" aria-label="Sistema de agentes">
   <div class="sec-label light reveal">Pipeline de inteligencia artificial</div>
-  <h2 class="agents-headline reveal d1">Cinco agentes<br>de <em>IA autónoma.</em><br>Un reporte listo<br>en 6 minutos.</h2>
+  <h2 class="agents-headline reveal d1">Cinco agentes<br>de <em>IA autónoma.</em><br>Datos crudos a<br>tesis de inversión.</h2>
   <div class="agents-row">
-    <div class="agent-card reveal"><div class="agent-n">01</div><span class="agent-ic">🛰️</span><div class="agent-nm">Recolector</div><div class="agent-mdl">Haiku 4.5</div><div class="agent-txt">Descarga automática de 22 fuentes. Opera 24/7 sin intervención humana.</div></div>
-    <div class="agent-card reveal d1"><div class="agent-n">02</div><span class="agent-ic">⚙️</span><div class="agent-nm">Procesador</div><div class="agent-mdl">Haiku 4.5</div><div class="agent-txt">Calcula NDVI, EVI, SWIR. Detecta anomalías geológicas automáticamente.</div></div>
-    <div class="agent-card reveal d2"><div class="agent-n">03</div><span class="agent-ic">🧠</span><div class="agent-nm">Analista</div><div class="agent-mdl">Sonnet 4.6</div><div class="agent-txt">Razonamiento profundo. Estima potencial y ROI por zona territorial.</div></div>
-    <div class="agent-card reveal d3"><div class="agent-n">04</div><span class="agent-ic">✍️</span><div class="agent-nm">Redactor</div><div class="agent-mdl">Opus 4.6</div><div class="agent-txt">Genera reportes de 30+ páginas en español e inglés. Listos para inversores.</div></div>
-    <div class="agent-card reveal d4"><div class="agent-n">05</div><span class="agent-ic">👁️</span><div class="agent-nm">Monitor</div><div class="agent-mdl">Haiku 4.5</div><div class="agent-txt">Vigila zonas suscritas 24/7. Alertas automáticas ante cambios críticos.</div></div>
+    <div class="agent-card reveal"><div class="agent-n">01</div><span class="agent-ic">🛰️</span><div class="agent-nm">Recolector</div><div class="agent-mdl">Ingesta</div><div class="agent-txt">Descarga automática de 22 fuentes. Opera 24/7 sin intervención humana.</div></div>
+    <div class="agent-card reveal d1"><div class="agent-n">02</div><span class="agent-ic">⚙️</span><div class="agent-nm">Procesador</div><div class="agent-mdl">Cómputo</div><div class="agent-txt">Calcula NDVI, EVI, SWIR. Detecta anomalías geológicas automáticamente.</div></div>
+    <div class="agent-card reveal d2"><div class="agent-n">03</div><span class="agent-ic">🧠</span><div class="agent-nm">Analista</div><div class="agent-mdl">Razonamiento</div><div class="agent-txt">Razonamiento profundo. Estima potencial y riesgo por zona territorial.</div></div>
+    <div class="agent-card reveal d3"><div class="agent-n">04</div><span class="agent-ic">✍️</span><div class="agent-nm">Redactor</div><div class="agent-mdl">Síntesis</div><div class="agent-txt">Genera reportes de 30+ páginas en español e inglés. Listos para inversores.</div></div>
+    <div class="agent-card reveal d4"><div class="agent-n">05</div><span class="agent-ic">👁️</span><div class="agent-nm">Monitor</div><div class="agent-mdl">Vigilancia</div><div class="agent-txt">Vigila zonas suscritas 24/7. Alertas automáticas ante cambios críticos.</div></div>
   </div>
   <div class="roi-strip reveal">
     <div class="roi-big">
-      <div class="roi-lbl">ROI del pipeline</div>
-      <div class="roi-num">3.009x</div>
-      <div class="roi-sub">USD 4.82 costo · USD 14.500 generados · por día</div>
+      <div class="roi-lbl">De meses a días</div>
+      <div class="roi-num">10x</div>
+      <div class="roi-sub">más rápido que la consultoría tradicional</div>
     </div>
     <div class="roi-text">
-      <h3>Costo real de operar TERRADEX IA</h3>
-      <p>La arquitectura multi-modelo optimiza cada tarea. El pipeline cuesta menos de USD 5 por día y genera reportes que se venden entre USD 3.500 y USD 50.000.</p>
+      <h3>Due diligence territorial, a otra velocidad</h3>
+      <p>La consultoría tradicional entrega reportes estáticos en 6 a 12 meses. TERRADEX IA integra datos satelitales, geológicos, climáticos y legales en análisis accionables y actualizables, en una fracción del tiempo y del costo.</p>
       <div class="cost-table">
-        <div class="ct-row"><span>Haiku 4.5 — Recolector + Procesador + Monitor</span><span>$0.91 / día</span></div>
-        <div class="ct-row"><span>Sonnet 4.6 — Analista</span><span>$1.24 / día</span></div>
-        <div class="ct-row"><span>Opus 4.6 — Redactor (por reporte)</span><span>$0.45 / rep.</span></div>
-        <div class="ct-row"><span>Infraestructura cloud total</span><span>$2.67 / día</span></div>
-        <div class="ct-row ct-total"><span>COSTO OPERATIVO MENSUAL</span><span>USD 133</span></div>
+        <div class="ct-row"><span>Datos satelitales y geológicos integrados</span><span>22 fuentes</span></div>
+        <div class="ct-row"><span>Radar SAR Banda L (SAOCOM)</span><span>Único en América</span></div>
+        <div class="ct-row"><span>Cobertura y monitoreo</span><span>24/7</span></div>
+        <div class="ct-row ct-total"><span>TRAZABILIDAD DE FUENTES</span><span>Verificable</span></div>
       </div>
     </div>
   </div>
@@ -686,9 +703,9 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
 <section class="sec market-sec" id="mercado" aria-label="Mercado objetivo">
   <div class="sec-label reveal">Oportunidad de mercado</div>
   <div class="market-cards">
-    <div class="mcard reveal"><div class="mcard-tag">Inversores globales</div><div class="mcard-num">USD 30B</div><div class="mcard-unit">comprometidos en RIGI energía + minería</div><div class="mcard-desc">Rio Tinto, McEwen Copper, Glencore y POSCO tomando decisiones de miles de millones en Argentina. Cada proyecto requiere due diligence territorial previo.</div></div>
-    <div class="mcard reveal d2"><div class="mcard-tag">Tierras patagónicas</div><div class="mcard-num">USD 600M</div><div class="mcard-unit">proyectados en compra de tierras 2025–2028</div><div class="mcard-desc">Fondos chilenos, europeos y árabes hacen consultas récord en Chubut y Río Negro. Capital del Golfo Pérsico ya opera activamente en la región.</div></div>
-    <div class="mcard reveal d3"><div class="mcard-tag">SaaS geoespacial LATAM</div><div class="mcard-num">USD 72B</div><div class="mcard-unit">proyección mercado 2034 · crecimiento 14% anual</div><div class="mcard-desc">La inteligencia geoespacial con IA aplicada a agricultura y minería es el sector de mayor crecimiento en tecnología para recursos naturales en LATAM.</div></div>
+    <div class="mcard reveal"><div class="mcard-tag">Inversores globales</div><div class="mcard-num">USD 30B</div><div class="mcard-unit">comprometidos en RIGI energía + minería</div><div class="mcard-desc">Grandes operadores mineros y energéticos tomando decisiones de miles de millones en Argentina. Cada proyecto requiere due diligence territorial previo.</div></div><!-- TODO: citar fuente -->
+    <div class="mcard reveal d2"><div class="mcard-tag">Tierras patagónicas</div><div class="mcard-num">USD 600M</div><div class="mcard-unit">proyectados en compra de tierras 2025–2028</div><div class="mcard-desc">Fondos chilenos, europeos y árabes hacen consultas récord en Chubut y Río Negro. Capital internacional ya opera activamente en la región.</div></div><!-- TODO: citar fuente -->
+    <div class="mcard reveal d3"><div class="mcard-tag">SaaS geoespacial LATAM</div><div class="mcard-num">USD 72B</div><div class="mcard-unit">proyección mercado 2034 · crecimiento 14% anual</div><div class="mcard-desc">La inteligencia geoespacial con IA aplicada a agricultura y minería es el sector de mayor crecimiento en tecnología para recursos naturales en LATAM.</div></div><!-- TODO: citar fuente -->
   </div>
 </section>
 
@@ -816,7 +833,7 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
   </div>
   <div class="footer-bottom">
     <span class="fcopy">© 2026 TERRADEX IA · Todos los derechos reservados</span>
-    <span class="fcopy">Plataforma SaaS · Agentes IA · Claude API · SAOCOM · Chubut</span>
+    <span class="fcopy">Plataforma SaaS · Agentes de IA · SAOCOM · Chubut</span>
   </div>
 </footer>
 
@@ -836,7 +853,7 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
   // ── FIX #8 — Email ofuscado: construido por JS, no en HTML ──
   (function buildEmail() {
     const u = 'contacto';
-    const d = 'terradex.com';
+    const d = 'terradexia.com';
     const el = document.getElementById('footer-contact');
     if (!el) return;
     const a = document.createElement('a');
@@ -1041,7 +1058,13 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
       // Disparar descarga automática después de 600ms (deja ver el check)
       setTimeout(triggerDownload, 600);
 
-      // Analytics (si GA4 está presente)
+      // Analytics — Vercel Web Analytics (FIX #6)
+      if (typeof window.va === 'function') {
+        window.va('event', { name: 'generate_lead', profile: profile });
+        window.va('event', { name: 'file_download', report: 'TERRADEX_Chubut_2026' });
+      }
+
+      // Analytics — GA4 (si está presente, opcional)
       if (typeof window.gtag === 'function') {
         window.gtag('event', 'generate_lead', {
           event_category: 'Form',
