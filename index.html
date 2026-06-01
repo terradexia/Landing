@@ -385,6 +385,11 @@ h1 em { font-style: italic; color: var(--gold); }
   font-size: 11px; line-height: 1.5; color: var(--muted);
   text-align: right; max-width: 130px; transition: color .25s;
 }
+.src-note {
+  font-family: var(--ff-mono); font-size: 8px; letter-spacing: .5px;
+  color: var(--muted); opacity: .6; line-height: 1.6;
+  margin-top: 32px; max-width: 760px;
+}
 
 /* ── AGENTS ── */
 .agents-sec { background: var(--ink); color: var(--paper); }
@@ -600,7 +605,7 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
       <button class="btn-text" onclick="scroll2('agentes')">Ver cómo funciona →</button>
     </div>
     <div class="hero-counters">
-      <div class="hcount"><div class="hcount-num">USD 30B+</div><div class="hcount-label">Comprometidos<br>en RIGI minería</div></div><!-- TODO: citar fuente -->
+      <div class="hcount"><div class="hcount-num">USD 30B+</div><div class="hcount-label">Comprometidos<br>en RIGI minería</div></div>
       <div class="hcount"><div class="hcount-num">22</div><div class="hcount-label">Fuentes de datos<br>integradas</div></div>
       <div class="hcount"><div class="hcount-num">SAOCOM</div><div class="hcount-label">Radar SAR Banda L<br>único en América</div></div>
       <div class="hcount"><div class="hcount-num">Días</div><div class="hcount-label">No meses<br>de due diligence</div></div>
@@ -656,17 +661,18 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
 <section class="sec problem" id="problema" aria-label="El problema">
   <div class="problem-grid">
     <div class="problem-left reveal">
-      <div class="bignumber">13M</div>
-      <h2>Hectáreas de Patagonia<br>en manos de capital <em>global.</em></h2>
+      <div class="bignumber">3,6M</div>
+      <h2>Hectáreas patagónicas<br>en manos de capital <em>extranjero.</em></h2>
       <p>El capital mundial ya eligió la Patagonia. Lo que falta es la inteligencia territorial para que esas decisiones sean precisas, rentables y escalables.</p>
     </div>
     <div class="stats-stack reveal d2">
-      <div class="stat-row"><div><div class="stat-lbl">Inversión RIGI Energía + Minería</div><div class="stat-val">USD 30B+</div></div><div class="stat-side">Comprometidos en Argentina 2025–2026</div></div><!-- TODO: citar fuente -->
-      <div class="stat-row"><div><div class="stat-lbl">Mercado SaaS geoespacial LATAM</div><div class="stat-val">USD 72B</div></div><div class="stat-side">Proyección 2034 · 14% crecimiento anual</div></div><!-- TODO: citar fuente -->
-      <div class="stat-row"><div><div class="stat-lbl">Fondos internacionales activos en Chubut</div><div class="stat-val">Récord</div></div><div class="stat-side">Consultas activas registradas 2025–2026</div></div><!-- TODO: citar fuente -->
+      <div class="stat-row"><div><div class="stat-lbl">Inversión RIGI aprobada · Energía + Minería</div><div class="stat-val">USD 27B+</div></div><div class="stat-side">Proyectos aprobados en Argentina a 2026</div></div>
+      <div class="stat-row"><div><div class="stat-lbl">Total presentado al RIGI</div><div class="stat-val">USD 95B</div></div><div class="stat-side">Aprobados + en evaluación · 97% energía y minería</div></div>
+      <div class="stat-row"><div><div class="stat-lbl">Mercado geoespacial global</div><div class="stat-val">USD 310B</div></div><div class="stat-side">Proyección 2034 · ~13% crecimiento anual</div></div>
       <div class="stat-row"><div><div class="stat-lbl">Competidores con foco Chubut + IA</div><div class="stat-val">Cero</div></div><div class="stat-side">El nicho está vacante hoy mismo</div></div>
     </div>
   </div>
+  <p class="src-note">Fuentes: RIGI — Infobae, 2026 · Mercado geoespacial — Fortune Business Insights, 2026 · Tierras extranjerizadas — El Extremo Sur / Política con Vos, 2026.</p>
 </section>
 
 <!-- AGENTS -->
@@ -703,9 +709,9 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
 <section class="sec market-sec" id="mercado" aria-label="Mercado objetivo">
   <div class="sec-label reveal">Oportunidad de mercado</div>
   <div class="market-cards">
-    <div class="mcard reveal"><div class="mcard-tag">Inversores globales</div><div class="mcard-num">USD 30B</div><div class="mcard-unit">comprometidos en RIGI energía + minería</div><div class="mcard-desc">Grandes operadores mineros y energéticos tomando decisiones de miles de millones en Argentina. Cada proyecto requiere due diligence territorial previo.</div></div><!-- TODO: citar fuente -->
-    <div class="mcard reveal d2"><div class="mcard-tag">Tierras patagónicas</div><div class="mcard-num">USD 600M</div><div class="mcard-unit">proyectados en compra de tierras 2025–2028</div><div class="mcard-desc">Fondos chilenos, europeos y árabes hacen consultas récord en Chubut y Río Negro. Capital internacional ya opera activamente en la región.</div></div><!-- TODO: citar fuente -->
-    <div class="mcard reveal d3"><div class="mcard-tag">SaaS geoespacial LATAM</div><div class="mcard-num">USD 72B</div><div class="mcard-unit">proyección mercado 2034 · crecimiento 14% anual</div><div class="mcard-desc">La inteligencia geoespacial con IA aplicada a agricultura y minería es el sector de mayor crecimiento en tecnología para recursos naturales en LATAM.</div></div><!-- TODO: citar fuente -->
+    <div class="mcard reveal"><div class="mcard-tag">Capital RIGI</div><div class="mcard-num">USD 95B</div><div class="mcard-unit">presentados al RIGI · 97% energía y minería</div><div class="mcard-desc">Argentina captó proyectos por unos USD 95.000M entre aprobados (USD 27.000M) y en evaluación. Cada proyecto de gran escala requiere due diligence territorial previo.</div></div>
+    <div class="mcard reveal d2"><div class="mcard-tag">Tierras patagónicas</div><div class="mcard-num">3,6M ha</div><div class="mcard-unit">ya en manos de capital extranjero</div><div class="mcard-desc">Grupos europeos, norteamericanos y de Medio Oriente concentran millones de hectáreas en la Patagonia. El capital internacional ya opera activamente en Chubut y Río Negro.</div></div>
+    <div class="mcard reveal d3"><div class="mcard-tag">Mercado geoespacial global</div><div class="mcard-num">USD 310B</div><div class="mcard-unit">proyección 2034 · crecimiento ~13% anual</div><div class="mcard-desc">La inteligencia geoespacial con IA aplicada a recursos naturales es uno de los sectores tecnológicos de mayor crecimiento de la década.</div></div>
   </div>
 </section>
 
