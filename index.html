@@ -4,21 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ── CSP — FIX #3 ── -->
-<meta http-equiv="Content-Security-Policy"
-  content="default-src 'self';
-  script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com;
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-  font-src https://fonts.gstatic.com;
-  connect-src 'self' https://vitals.vercel-insights.com;
-  img-src 'self' data: https:;
-  frame-ancestors 'none';">
-
-<!-- ── X-Frame-Options via meta ── -->
-<meta http-equiv="X-Frame-Options" content="DENY">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+<!-- ── SEGURIDAD: CSP, HSTS, X-Frame-Options y demás headers se sirven
+     como headers HTTP reales desde vercel.json (los meta tags de seguridad
+     son ignorados por los navegadores para la mayoría de estas directivas). ── -->
+<meta name="theme-color" content="#0a0d0f">
 
 <!-- ── SEO ── -->
 <title>TERRADEX IA — Reporte Chubut 2026: La oportunidad RIGI que el mercado no vio</title>
@@ -69,6 +58,44 @@
 }
 </script>
 <!-- TODO: confirmar/ajustar las URLs sociales de sameAs cuando estén publicadas -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué contiene el reporte Chubut 2026?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Un análisis institucional de 18 páginas sobre la oportunidad RIGI en Chubut: minería, agricultura, energía y logística, con 4 mapas cartográficos propios, datos oficiales 2026 y tesis de inversión." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El reporte tiene costo?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No, es gratuito para inversores, productores e instituciones. Solo se requiere un registro breve. Versión en inglés disponible bajo solicitud." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es el RIGI y por qué importa ahora?",
+      "acceptedAnswer": { "@type": "Answer", "text": "El RIGI (Régimen de Incentivo para Grandes Inversiones) otorga beneficios fiscales, aduaneros y cambiarios a proyectos de gran escala en Argentina, con adhesión prorrogada hasta julio de 2027. Chubut concentra recursos de primer nivel y aún no registra proyectos RIGI aprobados." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿De dónde salen los datos?",
+      "acceptedAnswer": { "@type": "Answer", "text": "De 22 fuentes validadas y trazables: Sentinel-2, radar SAOCOM Banda L, SEGEMAR, Macrostrat, Open-Meteo, PatagoniaMet y datos públicos del Ministerio de Hidrocarburos de Chubut, entre otras." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es TERRADEX IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Una plataforma de inteligencia territorial que integra datos satelitales, geológicos, climáticos y legales mediante agentes de IA para producir análisis accionables sobre activos territoriales en la Patagonia argentina. Produce en días lo que la consultoría tradicional entrega en meses." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo los contacto?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Escribinos a contacto@terradexia.com o registrate para descargar el reporte: los primeros 10 registros acceden a una llamada de calificación gratuita con el fundador." }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -509,7 +536,7 @@ h1 em { font-style: italic; color: var(--gold); }
 .fselect option { background: #111; color: var(--paper); }
 
 /* Honeypot — FIX #11 */
-.hp { position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; opacity:0; pointer-events:none; tab-index:-1; }
+.hp { position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; opacity:0; pointer-events:none; }
 
 .fsubmit {
   width: 100%; background: var(--gold); color: var(--ink);
@@ -569,6 +596,69 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
 .reveal.in { opacity:1; transform:translateY(0); }
 .d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s}
 .d4{transition-delay:.32s} .d5{transition-delay:.40s}
+
+/* ── ACCESIBILIDAD: respetar preferencia de movimiento reducido ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; }
+  .eyebrow, h1, .hero-desc, .hero-btns, .hero-counters, .hero-right svg { opacity: 1; animation: none; }
+  .ticker-track { animation: none; }
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+
+/* ── FAQ ── */
+.faq-sec { border-bottom: 1px solid var(--border); }
+.faq-list { max-width: 760px; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item summary {
+  list-style: none; cursor: pointer;
+  padding: 22px 0;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  font-family: var(--ff-display); font-size: 17px; font-weight: 700;
+  color: var(--ink); transition: color .2s;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: var(--gold); }
+.faq-item summary::after {
+  content: '+';
+  font-family: var(--ff-mono); font-size: 18px; font-weight: 300;
+  color: var(--muted); flex-shrink: 0;
+  transition: transform .25s;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); color: var(--gold); }
+.faq-item p {
+  font-size: 13px; line-height: 1.8; color: var(--muted);
+  padding: 0 32px 24px 0; max-width: 640px;
+}
+
+/* ── CTA MÓVIL FIJA ── */
+.mobile-cta {
+  display: none;
+  position: fixed; left: 0; right: 0; bottom: 0;
+  z-index: 400;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: rgba(10,13,15,.97);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(200,146,10,.25);
+  transform: translateY(110%);
+  transition: transform .35s ease;
+}
+.mobile-cta.show { transform: translateY(0); }
+.mobile-cta button {
+  width: 100%; background: var(--gold); color: var(--ink);
+  border: none; padding: 15px;
+  font-family: var(--ff-mono); font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase; cursor: pointer;
+}
+@media (max-width: 768px) {
+  .mobile-cta { display: block; }
+}
 </style>
 
 <!-- ── Vercel Web Analytics (liviano, sin cookies) — FIX #6 ── -->
@@ -828,6 +918,42 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="sec faq-sec" id="faq" aria-label="Preguntas frecuentes">
+  <div class="sec-label reveal">Preguntas frecuentes</div>
+  <div class="faq-list">
+    <details class="faq-item reveal">
+      <summary>¿Qué contiene el reporte Chubut 2026?</summary>
+      <p>Un análisis institucional de 18 páginas sobre la oportunidad RIGI en la provincia de Chubut: minería, agricultura, energía y logística. Incluye 4 mapas cartográficos propios, datos oficiales 2026 y una tesis de inversión con los caminos legales disponibles.</p>
+    </details>
+    <details class="faq-item reveal d1">
+      <summary>¿El reporte tiene costo?</summary>
+      <p>No. Es gratuito para inversores, productores e instituciones. Solo pedimos un registro breve para enviarte la descarga. Hay versión en inglés disponible bajo solicitud.</p>
+    </details>
+    <details class="faq-item reveal d2">
+      <summary>¿Qué es el RIGI y por qué importa ahora?</summary>
+      <p>El RIGI (Régimen de Incentivo para Grandes Inversiones) otorga beneficios fiscales, aduaneros y cambiarios a proyectos de gran escala en Argentina, con plazo de adhesión prorrogado hasta julio de 2027. Chubut concentra recursos minerales y energéticos de primer nivel y todavía no registra proyectos RIGI aprobados: esa asimetría entre recursos y capital es la oportunidad que analiza el reporte.</p>
+    </details>
+    <details class="faq-item reveal d3">
+      <summary>¿De dónde salen los datos?</summary>
+      <p>De 22 fuentes validadas y trazables: imágenes satelitales Sentinel-2 y radar SAOCOM Banda L, geología de SEGEMAR y Macrostrat, clima de Open-Meteo y PatagoniaMet, datos públicos del Ministerio de Hidrocarburos de Chubut y precios de mercado, entre otras. Cada cifra del reporte cita su fuente.</p>
+    </details>
+    <details class="faq-item reveal d4">
+      <summary>¿Qué es TERRADEX IA?</summary>
+      <p>Una plataforma de inteligencia territorial que integra datos satelitales, geológicos, climáticos y legales mediante agentes de IA para producir análisis accionables sobre activos territoriales en la Patagonia argentina. Produce en días lo que la consultoría tradicional entrega en meses.</p>
+    </details>
+    <details class="faq-item reveal d5">
+      <summary>¿Cómo los contacto?</summary>
+      <p>Escribinos a contacto@terradexia.com o registrate para descargar el reporte: los primeros 10 registros acceden a una llamada de calificación gratuita con el fundador.</p>
+    </details>
+  </div>
+</section>
+
+<!-- CTA MÓVIL FIJA -->
+<div class="mobile-cta" id="mobileCta" aria-hidden="true">
+  <button type="button" id="mobileCtaBtn">Descargar reporte Chubut 2026</button>
+</div>
+
 <!-- FOOTER — FIX #6 año 2026 · FIX #8 email ofuscado -->
 <footer>
   <div class="footer-row">
@@ -940,6 +1066,30 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
     });
   });
 
+  // ── CTA MÓVIL FIJA: aparece tras el hero, se oculta en el formulario ──
+  (function initMobileCta() {
+    const bar = document.getElementById('mobileCta');
+    const btn = document.getElementById('mobileCtaBtn');
+    const hero = document.querySelector('.hero');
+    const formSec = document.getElementById('acceso');
+    if (!bar || !btn || !hero || !formSec) return;
+
+    btn.addEventListener('click', () => scroll2('acceso'));
+
+    let pastHero = false, onForm = false;
+    function update() {
+      bar.classList.toggle('show', pastHero && !onForm);
+    }
+    new IntersectionObserver(es => {
+      es.forEach(e => { pastHero = !e.isIntersecting; });
+      update();
+    }, { threshold: 0.15 }).observe(hero);
+    new IntersectionObserver(es => {
+      es.forEach(e => { onForm = e.isIntersecting; });
+      update();
+    }, { threshold: 0.1 }).observe(formSec);
+  })();
+
   // ── AUTO-TRIGGER DOWNLOAD ──
   function triggerDownload() {
     const a = document.createElement('a');
@@ -1040,7 +1190,8 @@ footer { background: var(--ink); color: var(--paper); padding: 52px 5% 36px; bor
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         signal: controller.signal,
-        body: JSON.stringify({ name, email, company, profile, zone })
+        // Se incluye el honeypot "website" para que el servidor también pueda filtrar bots
+        body: JSON.stringify({ name, email, company, profile, zone, website: hp ? hp.value : '' })
       });
 
       clearTimeout(timeoutId);
